@@ -6,4 +6,8 @@ class Todo < ActiveRecord::Base
     def formatted_due_date
         due_date == nil ? "no due date set,":due_date.to_s(:long)     
     end
+    def show
+        id=params[:id]
+        render plain: "The id is #{id}"
+    end
 end
