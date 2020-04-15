@@ -7,11 +7,16 @@
     <%todos.all.each do |todo| %>
       <li class="TodoItem">
         <label class="TodoItem-container">
-          <input class="TodoItem-checkbox" type="checkbox">
+          <%if todo.completed%>
+            <input class="TodoItem-checkbox" type="checkbox" checked>
+            <del><%= todo.todo_text %></del>
+          <% else %>
+            <input class="TodoItem-checkbox" type="checkbox">
             <%= todo.todo_text %>
-            <% if show_due_date %>
-              <p class="TodoItem-dueDate"><%= todo.due_date.to_s(:short) %></p>
-            <% end %>
+          <%end%>
+          <% if show_due_date %>
+            <p class="TodoItem-dueDate"><%= todo.due_date.to_s(:short) %></p>
+          <% end %>
           <a class="TodoItem-delete" href="javascript:void(0)">
             <img src="trash-can.svg">
           </a>
