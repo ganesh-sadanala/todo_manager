@@ -2,26 +2,28 @@
     <!-- <img class="SplashImage" src="side-image.jpg" /> -->
 
   <article>
-      <h1 class="TodoPage-title">My To-do List</h1>
-      <section class="AddTodo">
-        <input type="text" class="AddTodo-text" placeholder="What's next?">
-        <input type="date" class="AddTodo-date" placeholder="date">
-        <input type="button" class="AddTodo-button" value="Add">
-      </section>
-      <%= render partial: "todo-section", locals: {
-        section_title: "Overdue",
-        todos: Todo.overdue,
-        show_due_date:true
-      }%>
-      <%= render partial: "todo-section", locals: {
-        section_title: "Due Today",
-        todos: Todo.due_today,
-        show_due_date: false
-      }%>
-      <%= render partial: "todo-section", locals: {
-        section_title: "Due Later",
-        todos: Todo.due_later,
-        show_due_date: true
-      }%>
+    <h1 class="TodoPage-title">My To-do List</h1>
+    <form class="AddTodo"
+          action="/todos"
+          method="POST">
+      <input type="text" class="AddTodo-text" placeholder="What's next?" name="todo_text">
+      <input type="date" class="AddTodo-date" placeholder="date" name="due_date">
+      <input type="button" class="AddTodo-button" type="submit" value="Add">
+    </form>
+    <%= render partial: "todo-section", locals: {
+      section_title: "Overdue",
+      todos: Todo.overdue,
+      show_due_date:true
+    }%>
+    <%= render partial: "todo-section", locals: {
+      section_title: "Due Today",
+      todos: Todo.due_today,
+      show_due_date: false
+    }%>
+    <%= render partial: "todo-section", locals: {
+      section_title: "Due Later",
+      todos: Todo.due_later,
+      show_due_date: true
+    }%>
   </article>
 </main>
