@@ -4,9 +4,9 @@
   <article>
     <h1 class="TodoPage-title">My To-do List</h1>
     <form class="AddTodo" action="/todos" method="POST">
-      <input type="text" class="AddTodo-text" placeholder="What's next?" name="todo_text">
-      <input type="date" class="AddTodo-date" placeholder="date" name="due_date">
-      <input class="AddTodo-button" type="submit" value="Add">
+      <input type="text" class="AddTodo-text" placeholder="What's next?" name="todo_text"/>
+      <input type="date" class="AddTodo-date" placeholder="date" name="due_date"/>
+      <input class="AddTodo-button" type="submit" value="Add"/>
     </form>
     <%= render partial: "todo-section", locals: {
       section_title: "Overdue",

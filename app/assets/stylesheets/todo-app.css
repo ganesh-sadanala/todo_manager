@@ -113,3 +113,6 @@ body {
   color: #6f6183;
   margin-left: 10px;
 }
+.TodoItem-completedText {
+  text-decoration: line-through;
+}
