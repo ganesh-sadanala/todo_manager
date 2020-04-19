@@ -1,12 +1,11 @@
 <main class="TodoPageMain">
-    <!-- <img class="SplashImage" src="side-image.jpg" /> -->
 
   <article>
     <h1 class="TodoPage-title">My To-do List</h1>
     <%=form_with(url: "/todos", method:"post", class: "AddTodo") do%>
-      <input type="text" class="AddTodo-text" placeholder="What's next?" name="todo_text"/>
-      <input type="date" class="AddTodo-date" placeholder="date" name="due_date"/>
-      <input class="AddTodo-button" type="submit" value="Add"/>
+      <%=text_field_tag 'todo_text',nil,placeholder:"what's next?",class:'AddTodo-text' %>
+      <%=date_field_tag 'due_date',nil,placeholder:'date',class:'AddTodo-date'%>
+      <%=submit_tag 'Add',class:'AddTodo-button'%>
     <%end%>
     <%= render partial: "todo-section", locals: {
       section_title: "Overdue",
