@@ -25,6 +25,9 @@ class Todo < ActiveRecord::Base
   def self.due_later
     where("due_date>?", Date.today)
   end
+  def self.of_user(user)
+    all.where(user_id: user.id)
+  end
 
   def to_displayable_string
     display_status = completed ? "[X]" : "[ ]"
