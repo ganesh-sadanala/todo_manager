@@ -1,13 +1,12 @@
 class Todo < ActiveRecord::Base
+  validates :todo_text, presence: true
+  validates :todo_text, length: { minimum: 2 }
+  validates :due_date, presence: true
   belongs_to :user
 
   def to_pleasant_string
     is_completed = completed ? "[X]" : "[ ]"
     "#{id}. #{formatted_due_date} #{todo_text} #{is_completed}"
-  end
-
-  def formatted_due_date
-    due_date == nil ? "no due date set," : due_date.to_s(:long)
   end
 
   def due_today?
@@ -27,12 +26,6 @@ class Todo < ActiveRecord::Base
   end
   def self.of_user(user)
     all.where(user_id: user.id)
-  end
-
-  def to_displayable_string
-    display_status = completed ? "[X]" : "[ ]"
-    display_date = due_today? ? nil : due_date
-    "#{display_status} #{todo_text} #{display_date}"
   end
 
   def self.show_list
