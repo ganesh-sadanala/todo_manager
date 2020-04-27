@@ -11,4 +11,5 @@ Rails.application.routes.draw do
 
   post "/signin" => "sessions#create", as: :sessions
   get "/signin" => "sessions#new", as: :new_sessions
+  delete "/signout" => "sessions#destroy", as: :destroy_session
 end
