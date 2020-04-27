@@ -4,12 +4,12 @@
     <p class="TodoSectionTitle-remainingCount"><%= todos.completed.count%> / <%=todos.count%></p>
   </div>
   <ul>
-    <%todos.all.each do |todo| %>
+    <% todos.all.each do |todo| %>
       <li class="TodoItem">
         <label class="TodoItem-container">
-          <%=form_with(url: "/todos/#{todo.id}", method:"put") do%>
-            <%=check_box_tag 'completed','1',checked=todo.completed,class:'TodoItem-checkbox',onclick:'this.form.submit()' %>
-          <%end%>
+          <%= form_with(url: "/todos/#{todo.id}", method:"put") do %>
+            <%= check_box_tag 'completed', '1', checked = todo.completed, class: 'TodoItem-checkbox', onclick: 'this.form.submit()' %>
+          <% end %>
           <p class='<%= todo.completed ? "TodoItem-completedText" : "" %>'>
             <%= todo.todo_text %>
           </p>
@@ -17,9 +17,9 @@
             <p class="TodoItem-dueDate"><%= todo.due_date.to_s(:short) %></p>
           <% end %>
           <a class="TodoItem-delete" href="javascript:void(0)">
-          <%=form_with(url: "/todos/#{todo.id}", method:"delete") do%>
-            <%=image_submit_tag 'trash-can.svg'%>
-          <%end%>
+          <%= form_with(url: "/todos/#{todo.id}", method:"delete") do %>
+            <%= image_submit_tag 'trash-can.svg' %>
+          <% end %>
           </a>
         </label>
       </li>

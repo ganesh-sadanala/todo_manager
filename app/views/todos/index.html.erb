@@ -2,10 +2,10 @@
 
   <article>
     <h1 class="TodoPage-title">My To-do List</h1>
-    <%=form_with(url: "/todos", method:"post", class: "AddTodo") do%>
-      <%=text_field_tag 'todo_text',nil,placeholder:"what's next?",class:'AddTodo-text' %>
-      <%=date_field_tag 'due_date',nil,placeholder:'date',class:'AddTodo-date'%>
-      <%=submit_tag 'Add',class:'AddTodo-button'%>
+    <%= form_with(url: "/todos", method:"post", class: "AddTodo") do %>
+      <%= text_field_tag 'todo_text', nil, placeholder: "what's next?", class: 'AddTodo-text' %>
+      <%= date_field_tag 'due_date', nil, placeholder: 'date', class:'AddTodo-date' %>
+      <%= submit_tag 'Add',class:'AddTodo-button'%>
     <%end%>
     <%= render partial: "todo-section", locals: {
       section_title: "Overdue",
