@@ -1,10 +1,6 @@
 class UsersController < ApplicationController
   skip_before_action :ensure_user_logged_in
 
-  def index
-    render "new"
-  end
-
   def create
     new_user = User.create!(
       first_name: params[:first_name],

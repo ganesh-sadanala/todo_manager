@@ -22,7 +22,7 @@ class TodosController < ApplicationController
     if new_todo.save
       redirect_to todos_path
     else
-      # flash[:error] = new_todo.errors.full_messages.join(",")
+      flash[:error] = new_todo.errors.full_messages.join(",")
       redirect_to todos_path
     end
   end
