@@ -53,4 +53,4 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem "pg", "~> 1.2"
-gem 'nokogiri', '1.10.8'
+gem 'nokogiri', '1.13.5'
